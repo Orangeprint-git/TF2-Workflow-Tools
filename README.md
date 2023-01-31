@@ -5,8 +5,8 @@ making TF2 modding and file setups faster
 
 current tools include:
 
-VTF & VMT generator.
+**VTF & VMT generator.**
   - Used to generate VTF files and VMT for those files from TXT setup files.
     - To be added:
-      - Generate VTF from existing file
-      - Generate VMT from existing file
+      - <sub>Generate VTF from existing file</sub>
+      - <sub>Generate VMT from existing file</sub>
