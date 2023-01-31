@@ -4,8 +4,10 @@ title VTF : VMT Gen
 color 06
 mode 40,30
 
+::Output folder of generated files
 SET FOLDER=OUTPUT\
 
+::Directory setting file
 SET /p DIRECTORY=<VMTDirectory.txt
 
 
@@ -61,11 +63,13 @@ SET /p choice=Command: [93m:
 	IF '%choice%'=='T' GOTO START
 
 
+::Regular Names.txt from the main dir
 :NAMTXTDEF
 [33m 2>nul
 SET TEMPLAT=Names.txt
 GOTO SETVAR
 
+::file selection prompt
 :CUSTXT
 set cmd=Add-Type -AssemblyName System.Windows.Forms;$f=new-object                 Windows.Forms.OpenFileDialog;$f.InitialDirectory=        [environment]::GetFolderPath('Desktop');$f.Filter='Text Files(*.txt)^|*.txt^|All         Files(*.*)^|*.*';$f.Multiselect=$true;[void]$f.ShowDialog();if($f.Multiselect)        {$f.FileNames}else{$f.FileName}
 set pwshcmd=powershell -noprofile -command "&{%cmd%}"
@@ -76,6 +80,8 @@ set ret=%FileName%
 SET TEMPLAT=%ret%
 GOTO SETVAR
 
+
+::Template menu
 :SELTEMPLT
 cls
 echo [33m________________________________________
@@ -108,12 +114,14 @@ choice /c %cnt% /m "Choose:"
 SET TEMPLAT=Templates\!fchoice%errorlevel%!
 
 
+::Generates variables for each line in a txt file
 :SETVAR
 [33m 2>nul
 For /F tokens^=* %%i in ('type %TEMPLAT%
 ')do set /a "_cnt+=1+0" && call set "_var!_cnt!=%%~i" ) do (
 )
 
+::Confirmation menu
 :NAMTXTDEF
 cls
 echo [33m________________________________________
@@ -147,6 +155,11 @@ echo ________________________________________
 echo -------[ Hit [93mENTER[33m to confirm. ]--------
 pause >NUL
 cls
+
+
+
+::File gen up to 100 files, you can add more by adding more of these
+::but youll need to change the numbers to correct ones
 IF "%_var1%"=="" (echo  [31mNo file names set.[33m) else (
 	echo  [93m1:[33m %_var1%.vtf
 	echo     %_var1%.vtf
@@ -941,7 +954,7 @@ IF "%_var100%"=="" (echo 2>nul) >nul else (
 )
 
 
-
+::End of file Hit ENTER to goto start
 echo ________________________________________
 echo ---[ Hit [93mENTER[33m to go back to Start. ]---
 pause >NUL
