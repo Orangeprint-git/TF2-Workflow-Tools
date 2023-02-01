@@ -27,7 +27,7 @@ ________________________________________________________________________________
     
 _______________________________________________________________________________________________     
       
-**D&Drop. ( DRAG % SROP FILE CONVERSION )**
+**D&Drop. ( DRAG & DROP FILE CONVERSION )**
   - Used to convert VTF and TGA by dragging and dropping files onto the .bat
     - To be added:
       - <sub>Generate VMT</sub>
