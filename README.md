@@ -4,6 +4,7 @@ TF2 workflow tools is a project centered around
 making TF2 modding and file setups faster
 
 current tools include:
+_______________________________________________________________________________________________ 
 
 **VFgen. ( FILE GENERATOR )**
   - Used to generate empty VTF files and VMT for those files from TXT setup files.
@@ -14,7 +15,6 @@ current tools include:
       - <sub>Other tags</sub>
      
 _______________________________________________________________________________________________
------------------------------------------------------------------------------------------------
 
 **VTManager. ( FILE CONVERSION AND VMT GENERATION )**
   - Used to convert VTF and TGA files in OUTPUT folder, and generate VMT for them.
@@ -23,8 +23,7 @@ ________________________________________________________________________________
       - <sub>Generate VMT for borders with _border tag</sub>
       - <sub>Other tags</sub>
     
-_______________________________________________________________________________________________
------------------------------------------------------------------------------------------------      
+_______________________________________________________________________________________________     
       
 **D&Drop. ( DRAG % SROP FILE CONVERSION )**
   - Used to convert VTF and TGA by dragging and dropping files onto the .bat
@@ -33,5 +32,4 @@ ________________________________________________________________________________
       - <sub>Generate VMT for borders with _border tag</sub>
       - <sub>Generate VMT for aimated texture with _anim tag</sub>
       
-_______________________________________________________________________________________________
------------------------------------------------------------------------------------------------   
+_______________________________________________________________________________________________  
