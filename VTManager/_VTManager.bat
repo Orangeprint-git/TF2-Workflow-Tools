@@ -13,7 +13,35 @@ if exist "Settings\VTFCdir.txt" (
 
 :SETVTFCDIR
 cls
-echo SELECT VTFCmd.exe
+echo [33m________________________________________
+echo ----------------------------------------
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo           SELECT VTFCmd.exe
+echo.
+echo           IF YOU CANCEL THIS-
+echo        YOU MUST REMOVE VTFCdir.txt
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo.
+echo [33m________________________________________
+echo ----------------------------------------
 set cmd=Add-Type -AssemblyName System.Windows.Forms;$f=new-object                 Windows.Forms.OpenFileDialog;$f.InitialDirectory=        [environment]::GetFolderPath('Desktop');$f.Filter='VTFCmd.exe^|*.exe^|All         Files(*.*)^|*.*';$f.Multiselect=$true;[void]$f.ShowDialog();if($f.Multiselect)        {$f.FileNames}else{$f.FileName}
 set pwshcmd=powershell -noprofile -command "&{%cmd%}"
 for /f "tokens=* delims=" %%I in ('%pwshcmd%') do call :sum "%%I" RET
