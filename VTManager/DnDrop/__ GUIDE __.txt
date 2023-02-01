@@ -1,0 +1,28 @@
+________________________________________
+----------------------------------------
+
+	Drag & Drop Guide
+		
+________________________________________
+----------------------------------------
+
+	On the first run you must select
+	VTFCmd.exe for this to work
+	
+	after that you can close the
+	window and drag files onto it.
+	
+	the files must be in this
+	same folder for it to work
+	
+	or you can move D&Drop.bat
+	anywhere with the .txt dir
+	file; or generate a new
+	directoey file for VTFCmd.
+	
+	if you cancel the file-
+	selection you have to delete
+	the .txt file and try again.
+	
+________________________________________
+----------------------------------------

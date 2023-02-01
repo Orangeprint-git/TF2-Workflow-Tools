@@ -1,0 +1,4 @@
+	"AnimatedTexture"
+{
+	"animatedTextureVar" "$basetexture"
+	"animatedTextureFrameNumVar" "$frame"
