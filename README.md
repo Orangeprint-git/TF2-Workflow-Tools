@@ -13,6 +13,7 @@ ________________________________________________________________________________
       - <sub>Generate VMT from existing file</sub>
       - <sub>Generate VMT for aimated texture with _anim tag</sub>
       - <sub>Other tags</sub>
+      
      
 _______________________________________________________________________________________________
 
@@ -22,6 +23,7 @@ ________________________________________________________________________________
       - <sub>Generate VMT from existing file</sub>
       - <sub>Generate VMT for borders with _border tag</sub>
       - <sub>Other tags</sub>
+      
     
 _______________________________________________________________________________________________     
       
@@ -31,5 +33,6 @@ ________________________________________________________________________________
       - <sub>Generate VMT</sub>
       - <sub>Generate VMT for borders with _border tag</sub>
       - <sub>Generate VMT for aimated texture with _anim tag</sub>
+      
       
 _______________________________________________________________________________________________  
