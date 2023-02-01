@@ -12,6 +12,9 @@ current tools include:
       - <sub>Generate VMT from existing file</sub>
       - <sub>Generate VMT for aimated texture with _anim tag</sub>
       - <sub>Other tags</sub>
+     
+_______________________________________________________________________________________________
+-----------------------------------------------------------------------------------------------
 
 **VTManager. ( FILE CONVERSION AND VMT GENERATION )**
   - Used to convert VTF and TGA files in OUTPUT folder, and generate VMT for them.
@@ -19,6 +22,9 @@ current tools include:
       - <sub>Generate VMT from existing file</sub>
       - <sub>Generate VMT for borders with _border tag</sub>
       - <sub>Other tags</sub>
+    
+_______________________________________________________________________________________________
+-----------------------------------------------------------------------------------------------      
       
 **D&Drop. ( DRAG % SROP FILE CONVERSION )**
   - Used to convert VTF and TGA by dragging and dropping files onto the .bat
@@ -26,3 +32,6 @@ current tools include:
       - <sub>Generate VMT</sub>
       - <sub>Generate VMT for borders with _border tag</sub>
       - <sub>Generate VMT for aimated texture with _anim tag</sub>
+      
+_______________________________________________________________________________________________
+-----------------------------------------------------------------------------------------------   
