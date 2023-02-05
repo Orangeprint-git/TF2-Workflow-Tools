@@ -38,7 +38,7 @@ ________________________________________________________________________________
 _______________________________________________________________________________________________  
       
 **BASEgen. ( RENCOPY FROM BASE)**
-  - Used to rename copy a base file any number of times.
+  - Used to rename and copy from base.vtf file any number of times.
     - To be added:
       - <sub>Generate VMT</sub>
       - <sub>Generate VMT for borders with _border tag</sub>
