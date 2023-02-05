@@ -124,12 +124,12 @@ echo  %aRGB%________________________________________
 echo  ----------------------------------------
 echo.
 echo.
-echo       Converts all %bRGB%TGA%aRGB% to %bRGB%VTF%aRGB% 
-echo     and VTF to TGA that are in the
-echo             OUTPUT folder
+echo        Converts all %bRGB%TGA%aRGB% to %bRGB%VTF%aRGB% 
+echo      and VTF to TGA that are in the
+echo              OUTPUT folder
 echo.
-echo    Also generates %bRGB%VMT%aRGB% for the files
-echo        from the VMTSettings.txt
+echo     Also generates %bRGB%VMT%aRGB% for the files
+echo         from the VMTSettings.txt
 echo.
 echo.
 echo  ________________________________________
@@ -188,7 +188,7 @@ echo.
 echo.
 echo.
 echo.
-echo    %bRGB%Please wait, this may take a while.%aRGB%
+echo     %bRGB%Please wait, this may take a while.%aRGB%
 echo.
 echo.
 echo.
@@ -276,7 +276,7 @@ echo.
 echo.
 echo.
 echo.
-echo    %bRGB%Please wait, this may take a while.%aRGB%
+echo     %bRGB%Please wait, this may take a while.%aRGB%
 echo.
 echo.
 echo.
