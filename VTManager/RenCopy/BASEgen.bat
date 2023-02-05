@@ -1,6 +1,6 @@
 @ECHO OFF
 setlocal enabledelayedexpansion
-title VTF : VMT Gen
+title RENCOPY BASE.vtf gen
 mode 42,30
 
 :START
@@ -42,7 +42,7 @@ echo.
 echo.
 echo.
 echo          Generates %bRGB%VTF%aRGB% from base
-echo              and writes %bRGB%VMT%aRGB%
+echo.
 echo.
 echo.
 echo.
