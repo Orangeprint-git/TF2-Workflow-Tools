@@ -36,3 +36,13 @@ ________________________________________________________________________________
       
       
 _______________________________________________________________________________________________  
+      
+**BASEgen. ( RENCOPY FROM BASE)**
+  - Used to rename copy a base file any number of times.
+    - To be added:
+      - <sub>Generate VMT</sub>
+      - <sub>Generate VMT for borders with _border tag</sub>
+      - <sub>Generate VMT for aimated texture with _anim tag</sub>
+      
+      
+_______________________________________________________________________________________________
