@@ -3,15 +3,13 @@
 TF2 workflow tools is a project centered around
 making TF2 modding and file setups faster
 
-this is a small side project where ill build some random tools-
-whenever i get the need for them.
-
+since this is a small side project
 dont expect them to be updated too much unless i decide to put them together into
 one larger all-in-one tool one day.
 
 for now ill be adding whatever small tools whenever needed or requested.
 
-current tools include:
+**current tool set includes:**
 _______________________________________________________________________________________________ 
 
 **VFgen. ( FILE GENERATOR )**
