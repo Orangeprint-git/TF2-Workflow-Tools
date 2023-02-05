@@ -1,14 +1,29 @@
 @ECHO OFF
 setlocal enabledelayedexpansion
 title VTManager
-color 06
-mode 40,30
+mode 42,30
 
+
+::Color theme main 
+SET aR=247
+SET aG=128
+SET aB=42
+
+::Color theme highlight
+SET bR=0
+SET bG=255
+SET bB=255
+
+SET aRGB=[38;2;!aR!;!aG!;!aB!m
+SET bRGB=[38;2;!bR!;!bG!;!bB!m
 
 SET VTFC=VTFcmd\bin\x64\VTFCmd.exe
 
-
 :VTFCSTART
+
+SET pR=0
+SET pG=0
+SET pB=0
 
 ::   ________________________________________
 ::   ----------------------------------------
@@ -94,10 +109,6 @@ For /F tokens^=* %%i in ('type %TEMPLAT%
 ')do set /a "_cnt+=1+0" && call set "_var!_cnt!=%%~i" ) do (
 )
 
-For /F tokens^=* %%i in ('type %TEMPLAT%
-')do set /a "_cnt+=1+0" && call set "_var!_cnt!=%%~i" ) do (
-)
-
 For /F tokens^=* %%i in ('type %TEMPLAT_anim%
 ')do set /a "_cnt_anim+=1+0" && call set "_var_anim!_cnt_anim!=%%~i" ) do (
 )
@@ -107,34 +118,41 @@ For /F tokens^=* %%i in ('type %TEMPLAT_anim%
 
 :: MAIN MENU
 
-
-echo [33m________________________________________
-echo ----------------------------------------
+set size=0
+set MB=0
+echo  %aRGB%________________________________________
+echo  ----------------------------------------
 echo.
-echo       Converts all [93mTGA[33m to [93mVTF[33m 
+echo.
+echo       Converts all %bRGB%TGA%aRGB% to %bRGB%VTF%aRGB% 
 echo     and VTF to TGA that are in the
 echo             OUTPUT folder
 echo.
-echo    Also generates [93mVMT[33m for the files
+echo    Also generates %bRGB%VMT%aRGB% for the files
 echo        from the VMTSettings.txt
 echo.
-echo ________________________________________
-echo ----------------------------------------
+echo.
+echo  ________________________________________
+echo  ----------------------------------------
 echo.
 echo  Files:
-echo     VTF: [93m%_VTFcnt%[33m
-echo     VMT: [93m%_VMTcnt%[33m
-echo     TGA: [93m%_TGAcnt%[33m
+echo     VTF: %bRGB%%_VTFcnt%%aRGB%
+echo     VMT: %bRGB%%_VMTcnt%%aRGB%
+echo     TGA: %bRGB%%_TGAcnt%%aRGB%
 echo.
 echo  Tags:
-echo     _anim: [93m%_cnt_anim%[33m
+echo     _anim: %bRGB%%_cnt_anim%%aRGB%
 echo.
+echo  Size:
+for /r %%x in (OUTPUT\*) do set /a size+=%%~zx
+set /A MB=%size%/1048000
+echo     %bRGB%%MB%%aRGB% MB ( %bRGB%%size%%aRGB% Bytes )
 echo.
-echo             Discord: [93m@Orangeprint#1170[33m
-echo ________________________________________
-echo -------[ Hit [93mENTER[33m to proceed. ]--------
+echo             Discord: %bRGB%@Orangeprint#1170%aRGB%
+echo  ________________________________________
+echo  -------[ Hit %bRGB%ENTER%aRGB% to proceed. ]--------
 SET choice=
-SET /p choice=[93m
+SET /p choice=%bRGB%
 
 	IF NOT '%choice%'=='' SET choice=%choice:~0,1%
 	
@@ -161,6 +179,41 @@ if not exist "%cd%\OUTPUT\*.tga" (
 :: TGA TO VTF
 
 :TGATOVTF
+set size=0
+set MB=0
+cls
+echo  %aRGB%________________________________________
+echo  ----------------------------------------
+echo.
+echo.
+echo.
+echo.
+echo    %bRGB%Please wait, this may take a while.%aRGB%
+echo.
+echo.
+echo.
+echo.
+echo.
+echo  ________________________________________
+echo  ----------------------------------------
+echo.
+echo  Files:
+echo     VTF: %bRGB%%_VTFcnt%%aRGB%
+echo     VMT: %bRGB%%_VMTcnt%%aRGB%
+echo     TGA: %bRGB%%_TGAcnt%%aRGB%
+echo.
+echo  Tags:
+echo     _anim: %bRGB%%_cnt_anim%%aRGB%
+echo.
+echo  Size:
+for /r %%x in (OUTPUT\*) do set /a size+=%%~zx
+set /A MB=%size%/1048000
+echo     %bRGB%%MB%%aRGB% MB ( %bRGB%%size%%aRGB% Bytes )
+echo.
+echo             Discord: %bRGB%@Orangeprint#1170%aRGB%
+echo  ________________________________________
+echo  ----------------------------------------
+
 set VTFC=VTFcmd\bin\x64\VTFcmd.exe
 %VTFC% -folder "%cd%\OUTPUT\*.tga" -output "%cd%\OUTPUT" -format "I8" -alphaformat IA88 -silent 
 del "%cd%\OUTPUT\*.tga"
@@ -172,6 +225,7 @@ FOR /L %%A IN (1,1,%_cnt%
 	type VMTSettings.txt> %FOLDER%!FILEN!.vmt
 	echo 	"$basetexture" "%DIRECTORY%!FILEN!.vtf">> %FOLDER%!FILEN!.vmt
 	echo }>> %FOLDER%!FILEN!.vmt
+	call :PROGRESSBAR
 )
 
 
@@ -180,8 +234,8 @@ FOR /L %%A IN (1,1,%_cnt%
 
 :: FPS select
 
-IF %_cnt_anim% GTR 0 echo  [33m[ [93m%_cnt_anim%[33m ] _anim tag(s) found!
-IF %_cnt_anim% GTR 0 set /p "FPS=[33m Animation FPS[93m : "
+IF %_cnt_anim% GTR 0 echo  %aRGB%[ %bRGB%%_cnt_anim%%aRGB% ] _anim tag(s) found!
+IF %_cnt_anim% GTR 0 set /p "FPS=%aRGB% Animation FPS%bRGB% : "
 
 ::   ________________________________________
 ::   ----------------------------------------
@@ -195,6 +249,7 @@ FOR /L %%A IN (1,1,%_cnt_anim%
 	type VMTSettings_anim.txt>> %FOLDER%!FILEN!.vmt
 echo		"animatedTextureFrameRate" "%FPS%">> %FOLDER%!FILEN!.vmt
 echo }>> %FOLDER%!FILEN!.vmt
+	call :PROGRESSBAR
 )
 
 ::   ________________________________________
@@ -212,10 +267,74 @@ GOTO START
 :: VTF TO TGA
 
 :VTFTOTGA
-%VTFC% -folder "%cd%\OUTPUT\*.vtf" -output "%cd%\OUTPUT" -silent 
+set size=0
+set MB=0
+cls
+echo  %aRGB%________________________________________
+echo  ----------------------------------------
+echo.
+echo.
+echo.
+echo.
+echo    %bRGB%Please wait, this may take a while.%aRGB%
+echo.
+echo.
+echo.
+echo.
+echo.
+echo  ________________________________________
+echo  ----------------------------------------
+echo.
+echo  Files:
+echo     VTF: %bRGB%%_VTFcnt%%aRGB%
+echo     VMT: %bRGB%%_VMTcnt%%aRGB%
+echo     TGA: %bRGB%%_TGAcnt%%aRGB%
+echo.
+echo  Tags:
+echo     _anim: %bRGB%%_cnt_anim%%aRGB%
+echo.
+echo  Size:
+for /r %%x in (OUTPUT\*) do set /a size+=%%~zx
+set /A MB=%size%/1048000
+echo     %bRGB%%MB%%aRGB% MB ( %bRGB%%size%%aRGB% Bytes )
+echo.
+echo             Discord: %bRGB%@Orangeprint#1170%aRGB%
+echo ________________________________________
+echo ----------------------------------------
+%VTFC% -folder "%cd%\OUTPUT\*.vtf" -output "%cd%\OUTPUT" -silent
 del "%cd%\OUTPUT\*.vtf"
 del "%cd%\OUTPUT\ .vtf"
 del "%cd%\OUTPUT\*.vmt"
 del "Names-CONVRT_anim.txt"
 del "Names-CONVRT.txt"
 GOTO START
+
+
+::   ________________________________________
+::   ----------------------------------------
+
+:: PROGRESS BAR
+
+:PROGRESSBAR
+if !pR! LEQ 0 SET pR=0
+if !pG! LEQ 0 SET pG=0
+if !pB! LEQ 0 SET pB=0
+if !pR! GTR 247  SET pR=247 
+if !pG! GTR 128  SET pG=128 
+if !pB! GTR 42   SET pB=42   
+
+chcp 65001 > nul
+FOR /L  %%A IN (1,1,1) DO (
+		cls
+		echo.
+		echo  %bRGB%Writing VMT files.%aRGB%
+		echo.
+		SET /a pR+=7
+		SET /a pG+=4
+		SET /a pB+=2
+		
+		call set BAR=[38;2;!pR!;!pG!;!pB!m█!BAR!
+		ECHO !BAR!
+    )
+)
+chcp 1252 >nul
