@@ -9,7 +9,7 @@ one larger all-in-one tool one day.
 
 for now ill be adding whatever small tools whenever needed or requested.
 
-**current tool set includes:**
+**current toolset includes:**
 _______________________________________________________________________________________________ 
 
 **VFgen. ( FILE GENERATOR )**
